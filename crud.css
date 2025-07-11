@@ -240,7 +240,7 @@ td {
         font-size: 10rem;
     }
     .jjj {
-        height: 20px;
+        height: 30px;
         width: 300px;
     }
     #jjj {
@@ -251,7 +251,7 @@ td {
         padding: 0px 20px;
     }
     .head{
-        font-size: 2rem;
+        font-size: 3rem;
     }
     #them {
         width: 120px;
@@ -263,9 +263,13 @@ td {
     }
     input {
         height: 60px;
-        font-size: 2rem;
+        font-size: 3rem;
+        
         margin: 10px 0px;
     }
+    input:focus {
+    transform: scale(1);
+}
     .price{
         flex-direction: column;
     }
@@ -274,19 +278,23 @@ td {
     }
     #total {
         height: 60px;
-        font-size: 2rem;
+        font-size: 3rem;
     }
     #total::before {
-        font-size: 2rem;
+        font-size: 3rem;
     }
     .inputs button,
     .outputs button {
-        height: 60px;
-        font-size: 2rem;
+        height: 80px;
+        padding: 10px;
+        font-size: 2.5rem;
     }
     .btnSearch button {
-        font-size: 2rem;
+        font-size: 3rem;
     }
+    .btnSearch button {
+    width: 49%;
+}
     table th,
     table td {
         font: 1.4rem sans-serif;
