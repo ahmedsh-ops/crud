@@ -1,0 +1,294 @@
+* {
+    margin: 0;
+    padding: 0;
+    transition: 0.5s;
+}
+
+body {
+    background: #ffffff;
+    color: #000000;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body.dark {
+    background: #000000;
+    color: #ffffff;
+}
+
+#loding {
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #ffffff;
+    color: #000000;
+    position: fixed;
+    z-index: 99;
+    transition: 0s;
+}
+
+body.dark #loding {
+    background: #000000;
+    color: #ffffff;
+}
+
+#aaa{
+    font-size: 5rem;
+    color: #000;
+}
+body.dark #aaa{
+    color: #ffffff;
+}
+#aaa::after{
+    content: '%';
+}
+.jjj{
+    height: 10px;
+    width: 150px ;
+    background: #555;
+    transition: 0s;
+    border-radius: 50rem;
+}
+body.dark .jjj{
+    background: rgb(180, 180, 180);
+}
+#jjj{
+    height: 10px;
+    background : #000000;
+    animation: l2 3s linear;
+    border-radius: 50rem;
+}
+body.dark #jjj{
+    background : #ffffff;
+    animation: l2 3s linear;
+}
+@keyframes l2{
+    from{
+        width: 0%;
+    }
+    to{
+        width: 100%;
+    }
+}
+
+.loding {
+    display: none;
+}
+
+
+
+.crud {
+    width: 80%;
+    margin: auto;
+}
+
+.head {
+    text-transform: uppercase;
+    margin: 20px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#them {
+    width: 60px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    background: rgb(0, 0, 0);
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 2px solid rgb(0, 0, 0);
+
+}
+
+body.dark #them {
+    background: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+}
+
+#them::before {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+body.dark #them::before {
+    background: rgb(0, 0, 0);
+    right: 0;
+}
+
+input {
+    width: 100%;
+    height: 30px;
+    outline: none;
+    border: none;
+    background-color: rgb(230, 230, 230);
+    margin: 4px 0px;
+    border-radius: 5px;
+    padding: 5px;
+    color: #000000;
+}
+
+body.dark input {
+    background-color: #333;
+    color: rgb(240, 240, 240);
+}
+
+input:focus {
+    background: rgb(210, 210, 210);
+    transform: scale(1.05);
+}
+
+body.dark input:focus {
+    background: #333;
+}
+
+.price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.price input {
+    width: 20%;
+}
+
+#total {
+    background: #d60000;
+    color: #ffffff;
+    height: 30px;
+    padding: 5px 4px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#total::before {
+    content: 'Total : ';
+}
+
+.inputs button,
+.outputs button {
+    width: 100%;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    background: rgb(0, 0, 0);
+    color: #ffffff;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+body.dark .inputs button,
+body.dark .outputs button {
+    color: rgb(0, 0, 0);
+    background: rgb(255, 255, 255);
+}
+
+.inputs button:hover,
+.outputs button:hover {
+    background: #333;
+    letter-spacing: 1px;
+}
+
+body.dark .inputs button:hover,
+body.dark .outputs button:hover {
+    background: rgb(190, 190, 190);
+}
+
+.btnSearch {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btnSearch button {
+    width: 45%;
+}
+
+table {
+    width: 100%;
+    text-align: center;
+    margin: 10px 0px;
+}
+
+table th {
+    text-transform: uppercase;
+}
+
+th,
+td {
+    padding: 5px;
+}
+
+#deleteAll {
+    margin: 10px 0px;
+}
+
+@media  (min-width: 768px) and (max-width: 1200px) {
+    #aaa {
+        font-size: 10rem;
+    }
+    .jjj {
+        height: 20px;
+        width: 300px;
+    }
+    #jjj {
+        height: 20px;
+    }
+    .crud{
+        width: 100%;
+        padding: 0px 20px;
+    }
+    .head{
+        font-size: 2rem;
+    }
+    #them {
+        width: 120px;
+        height: 60px;
+    }
+    #them::before {
+        width: 50px;
+        height: 50px;
+    }
+    input {
+        height: 60px;
+        font-size: 2rem;
+    }
+    .price{
+        flex-direction: column;
+    }
+    .price input {
+        width: 100%;
+        margin: 10px 0px;
+    }
+    #total {
+        height: 60px;
+        font-size: 2rem;
+    }
+    #total::before {
+        font-size: 2rem;
+    }
+    .inputs button,
+    .outputs button {
+        height: 60px;
+        font-size: 2rem;
+    }
+    .btnSearch button {
+        font-size: 2rem;
+    }
+    table th,
+    table td {
+        font: 1.4rem sans-serif;
+    }
+}
