@@ -131,8 +131,8 @@ function showData() {
                         <td>${dataPro[i].discount}%</td>
                         <td>${dataPro[i].total}$</td>
                         <td>${dataPro[i].category}</td>
-                        <td><button onclick= "updateDate(${i})" id="update">update</button></td>
-                        <td><button onclick= "deleteDate(${i})" id="delete">delete</button></td>
+                        <td><button class = "buttos" onclick= "updateDate(${i})" id="update">update</button></td>
+                        <td><button class = "buttos" onclick= "deleteDate(${i})" id="delete">delete</button></td>
                     </tr>`;
     }
     document.getElementById('tbody').innerHTML = table;
