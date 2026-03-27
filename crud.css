@@ -1,303 +1,339 @@
-* {
-    margin: 0;
-    padding: 0;
-    transition: 0.5s;
-}
-
-body {
-    background: #ffffff;
-    color: #000000;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+:root {
+    --primary-color: #000000;
+    --secondary-color: #666666;
+    --bg-color: #f4f7f6;
+    --card-bg: #ffffff;
+    --text-color: #333333;
+    --input-bg: #fdfdfd;
+    --input-border: #e0e0e0;
+    --accent-red: #ff4d4d;
+    --transition-speed: 0.3s;
+    --radius-md: 12px;
+    --radius-sm: 8px;
+    --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 body.dark {
-    background: #000000;
-    color: #ffffff;
+    --primary-color: #ffffff;
+    --secondary-color: #aaaaaa;
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --text-color: #eeeeee;
+    --input-bg: #2d2d2d;
+    --input-border: #444444;
+    --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Loading Animation */
 #loding {
     height: 100vh;
     width: 100%;
+    position: fixed;
     top: 0;
+    left: 0;
+    background: var(--bg-color);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: #ffffff;
-    color: #000000;
-    position: fixed;
-    z-index: 99;
-    transition: 0s;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
 }
 
-body.dark #loding {
-    background: #000000;
-    color: #ffffff;
+#aaa {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 20px;
 }
 
-#aaa{
-    font-size: 5rem;
-    color: #000;
-}
-body.dark #aaa{
-    color: #ffffff;
-}
-#aaa::after{
+#aaa::after {
     content: '%';
 }
-.jjj{
-    height: 10px;
-    width: 150px ;
-    background: #555;
-    transition: 0s;
-    border-radius: 50rem;
+
+.jjj {
+    height: 8px;
+    width: 200px;
+    background: var(--input-border);
+    border-radius: 10px;
+    overflow: hidden;
 }
-body.dark .jjj{
-    background: rgb(180, 180, 180);
+
+#jjj {
+    height: 100%;
+    width: 0%;
+    background: var(--primary-color);
+    animation: loadingProgress 3s linear forwards;
 }
-#jjj{
-    height: 10px;
-    background : #000000;
-    animation: l2 3s linear;
-    border-radius: 50rem;
-}
-body.dark #jjj{
-    background : #ffffff;
-    animation: l2 3s linear;
-}
-@keyframes l2{
-    from{
+
+@keyframes loadingProgress {
+    0% {
         width: 0%;
     }
-    to{
+
+    100% {
         width: 100%;
     }
 }
 
-.loding {
-    display: none;
+.loading-hidden {
+    opacity: 0 !important;
+    pointer-events: none;
 }
 
-
-
+/* Main Layout */
 .crud {
-    width: 80%;
-    margin: auto;
+    width: 95%;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    background: var(--card-bg);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
 }
 
 .head {
-    text-transform: uppercase;
-    margin: 20px 0px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 30px;
+    text-transform: uppercase;
 }
 
+.head h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.head p {
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Theme Switcher */
 #them {
-    width: 60px;
-    height: 30px;
-    border: none;
+    width: 50px;
+    height: 26px;
+    background: var(--input-bg);
+    border: 2px solid var(--input-border);
+    border-radius: 20px;
     cursor: pointer;
-    background: rgb(0, 0, 0);
-    border-radius: 10px;
     position: relative;
-    display: flex;
-    align-items: center;
-    border: 2px solid rgb(0, 0, 0);
-
-}
-
-body.dark #them {
-    background: rgb(255, 255, 255);
-    border: 2px solid rgb(255, 255, 255);
+    padding: 2px;
 }
 
 #them::before {
     content: '';
     position: absolute;
-    width: 25px;
-    height: 25px;
-    background: rgb(255, 255, 255);
-    border-radius: 10px;
+    width: 18px;
+    height: 18px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    left: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 body.dark #them::before {
-    background: rgb(0, 0, 0);
-    right: 0;
+    transform: translate(22px, -50%);
+}
+
+/* Form Styling */
+.inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
 }
 
 input {
     width: 100%;
-    height: 30px;
+    padding: 12px 16px;
+    border: 1px solid var(--input-border);
+    border-radius: var(--radius-sm);
+    background: var(--input-bg);
+    color: var(--text-color);
+    font-size: 1rem;
     outline: none;
-    border: none;
-    background-color: rgb(230, 230, 230);
-    margin: 4px 0px;
-    border-radius: 5px;
-    padding: 5px;
-    color: #000000;
-}
-
-body.dark input {
-    background-color: #333;
-    color: rgb(240, 240, 240);
+    transition: all 0.3s;
 }
 
 input:focus {
-    background: rgb(210, 210, 210);
-    transform: scale(1.05);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.05);
+    background: var(--card-bg);
 }
 
 body.dark input:focus {
-    background: #333;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.05);
 }
 
 .price {
     display: flex;
-    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
     align-items: center;
-
 }
 
 .price input {
-    width: 20%;
+    flex: 1 1 150px;
 }
 
 #total {
-    background: #d60000;
-    color: #ffffff;
-    height: 30px;
-    padding: 5px 4px;
-    border-radius: 5px;
+    flex: 1 1 100%;
+    background: var(--accent-red);
+    color: white;
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    font-weight: bold;
 }
 
 #total::before {
-    content: 'Total : ';
+    content: 'Total: ';
 }
 
-.inputs button,
-.outputs button {
-    width: 100%;
-    height: 40px;
-    border: none;
+/* Buttons */
+button {
     cursor: pointer;
-    background: rgb(0, 0, 0);
-    color: #ffffff;
-    border-radius: 5px;
-    transition: 0.3s;
-}
-
-body.dark .inputs button,
-body.dark .outputs button {
-    color: rgb(0, 0, 0);
-    background: rgb(255, 255, 255);
-}
-
-.inputs button:hover,
-.outputs button:hover {
-    background: #333;
+    padding: 12px;
+    border: none;
+    border-radius: var(--radius-sm);
+    background: var(--primary-color);
+    color: var(--bg-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all 0.3s;
     letter-spacing: 1px;
 }
 
-body.dark .inputs button:hover,
-body.dark .outputs button:hover {
-    background: rgb(190, 190, 190);
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+    opacity: 0.9;
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.searchBlock {
+    margin-bottom: 20px;
 }
 
 .btnSearch {
     display: flex;
-    justify-content: space-between;
+    gap: 10px;
+    margin-top: 10px;
 }
 
 .btnSearch button {
-    width: 45%;
+    flex: 1;
+}
+
+#deleteAll button {
+    width: 100%;
+    background: var(--accent-red);
+    margin-bottom: 20px;
+}
+
+/* Table Responsive Container */
+.table-container {
+    overflow-x: auto;
+    border-radius: var(--radius-sm);
+    margin-top: 20px;
 }
 
 table {
     width: 100%;
-    text-align: center;
-    margin: 10px 0px;
+    border-collapse: collapse;
+    min-width: 800px;
+    background: var(--input-bg);
 }
 
 table th {
+    background: var(--primary-color);
+    color: var(--bg-color);
+    padding: 15px;
+    font-size: 0.85rem;
     text-transform: uppercase;
+    text-align: left;
 }
 
-th,
-td {
-    padding: 5px;
+table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--input-border);
+    font-size: 0.95rem;
 }
 
-#deleteAll {
-    margin: 10px 0px;
+table tr:last-child td {
+    border-bottom: none;
 }
 
-@media  (min-width: 768px) and (max-width: 1000px) {
-    #aaa {
-        font-size: 10rem;
-    }
-    .jjj {
-        height: 30px;
-        width: 300px;
-    }
-    #jjj {
-        height: 30px;
-    }
-    .crud{
+table tr:hover {
+    background: rgba(0, 0, 0, 0.02);
+}
+
+body.dark table tr:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+table button {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    text-transform: none;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 600px) {
+    .crud {
         width: 100%;
-        padding: 0px 20px;
+        margin: 0;
+        border-radius: 0;
+        padding: 15px;
+        box-shadow: none;
     }
-    .head{
-        font-size: 3rem;
+
+    .head h2 {
+        font-size: 1.5rem;
     }
-    #them {
-        width: 120px;
-        height: 60px;
-    }
-    #them::before {
-        width: 50px;
-        height: 50px;
-    }
-    input {
-        height: 60px;
-        font-size: 3rem;
-        
-        margin: 10px 0px;
-    }
-    input:focus {
-    transform: scale(1);
-}
-    .price{
-        flex-direction: column;
-    }
+
     .price input {
-        width: 100%;
+        flex: 1 1 calc(50% - 10px);
     }
-    #total {
-        height: 60px;
+
+    #aaa {
         font-size: 3rem;
     }
-    #total::before {
-        font-size: 3rem;
-    }
-    .inputs button,
-    .outputs button {
-        height: 80px;
-        padding: 10px;
-        font-size: 2.5rem;
-    }
-    
-    .btnSearch button {
-        font-size: 3rem;
-    }
-    .btnSearch button {
-    width: 49%;
 }
-    table th,
-    table td {
-        font: 1.4rem sans-serif;
+
+@media (max-width: 400px) {
+    .price input {
+        flex: 1 1 100%;
     }
 }

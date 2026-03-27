@@ -8,13 +8,12 @@ let l = 0
 let aaa = document.getElementById('aaa')
 let jjj = document.getElementById('jjj')
 
-setInterval(function naaam(){
-        if(l <= 100)
-        {    
-            aaa.innerHTML =l++;
-            
-        }
-        
+setInterval(function naaam() {
+    if (l <= 100) {
+        aaa.innerHTML = l++;
+
+    }
+
 }, 28)
 
 //t
@@ -48,10 +47,10 @@ function getTotal() {
         let presnt = (+price.value + +taxes.value + +ads.value) * +discount.value / 100
         let result = (+price.value + +taxes.value + +ads.value) - presnt
         total.innerHTML = Math.ceil(result);
-        total.style.background = '#07d600';
+        total.style.background = '#00c853'; // Use a nicer success green
     } else {
         total.innerHTML = '';
-        total.style.background = '#d60000'
+        total.style.background = 'var(--accent-red)'
     }
 }
 
@@ -95,16 +94,16 @@ submit.onclick = function () {
         clearData();
     } else {
         if (title.value == '' || price.value == '' || category.value == '') {
-            alert(`Error in ${placeholder}`)
+            alert(`Please fill all required fields (Title, Price, Category)`)
         }
     }
 
 
     localStorage.setItem('prodect', JSON.stringify(dataPro));
     console.log(dataPro);
-    
+
     showData();
-    total.style.background = '#7c0303'
+    total.style.background = '#ff4d4d'
 }
 //clear inputs
 function clearData() {

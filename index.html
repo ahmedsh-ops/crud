@@ -3,8 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="crud.css">
-    <title>cruds</title>
+    <title>CRUDS - Product Management</title>
 </head>
 
 <body>
@@ -47,23 +51,25 @@
                 </div>
             </div>
             <div id="deleteAll"></div>
-            <Table>
-                <tr>
-                    <th>id</th>
-                    <th>title</th>
-                    <th>price</th>
-                    <th>taxes</th>
-                    <th>ads</th>
-                    <th>discount</th>
-                    <th>total</th>
-                    <th>category</th>
-                    <th>update</th>
-                    <th class="delete">delete</th>
-                </tr>
-                <tbody id="tbody">
-
-                </tbody>
-            </Table>
+            <div class="table-container">
+                <Table>
+                    <tr>
+                        <th>id</th>
+                        <th>title</th>
+                        <th>price</th>
+                        <th>taxes</th>
+                        <th>ads</th>
+                        <th>discount</th>
+                        <th>total</th>
+                        <th>category</th>
+                        <th>update</th>
+                        <th class="delete">delete</th>
+                    </tr>
+                    <tbody id="tbody">
+    
+                    </tbody>
+                </Table>
+            </div>
 
         </div>
     </div>
